@@ -19,18 +19,18 @@ export const HaulerList = () => {
   return haulerHTML;
 };
 
-
 document.addEventListener("click", (clickEvent) => {
   const itemClicked = clickEvent.target;
-  if(itemClicked.dataset.type==="hauler"){
+
+  if (itemClicked.dataset.type === "hauler") {
     const haulerIdClick = itemClicked.dataset.haulerid;
-  
-    let index=0
-  for (const cargoShip of cargoShips) {
-    if (cargoShip.haulerId === (+haulerIdClick)) {
-        index++
+
+    let index = 0;
+    for (const cargoShip of cargoShips) {
+      if (cargoShip.haulerId === +haulerIdClick) {
+        index++;
+      }
     }
-  }
-  window.alert(`This hauler is carrying ${index} cargo ships`);
+    window.alert(`This hauler is carrying ${index} cargo ships`);
   }
 });
