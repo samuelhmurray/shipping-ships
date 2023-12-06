@@ -1,0 +1,22 @@
+#container{
+    display: flex;
+    color:rgb(68, 57, 42);
+    }
+    
+    .docks, .cargo-ships, .hauler-ships{
+    border:dotted white;
+    margin: 3px;
+    padding:20px;
+    }
+body{
+    background:#7EAFE4;
+
+}
+
+.list-item{
+    margin: 5px;
+}
+
+#main-title{
+    color:rgb(68, 57, 42);
+}
