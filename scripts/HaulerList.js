@@ -9,9 +9,10 @@ export const HaulerList = () => {
   for (const hauler of haulers) {
     haulerHTML += `<li class="list-item" 
                            data-type="hauler" 
+                           data-name=${hauler.name}
                            data-haulerId="${hauler.id}"
                            >${hauler.name}
-                           </li>`;
+                           </li>`
   }
 
   haulerHTML += "</ul>";
@@ -24,13 +25,14 @@ document.addEventListener("click", (clickEvent) => {
 
   if (itemClicked.dataset.type === "hauler") {
     const haulerIdClick = itemClicked.dataset.haulerid;
-
+    const haulerName = itemClicked.outerText
+    
     let index = 0;
     for (const cargoShip of cargoShips) {
       if (cargoShip.haulerId === +haulerIdClick) {
         index++;
       }
     }
-    window.alert(`This hauler is carrying ${index} cargo ships`);
+    window.alert(`${haulerName} is carrying ${index} cargo ships`);
   }
 });

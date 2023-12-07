@@ -3,15 +3,28 @@ import { getCargoShips, getHaulers } from "./database.js";
 const cargoShips = getCargoShips();
 const haulers = getHaulers();
 
-export const CargoShipList = () => {
-  let cargoShipHTML = `<h1 class="title">Cargo Ships</h1><ul>`;
 
+const sortCargoShips = (a, b) =>{
+  let x = a.name.toLowerCase();
+  let y = b.name.toLowerCase();
+  if (x < y) {return -1;}
+  if (x > y) {return 1;}
+  return 0;
+};
+
+
+cargoShips.sort(sortCargoShips)
+//cargoShips.sort((a, b) => a.name - b.name);
+
+export const CargoShipList = () => {
+  
+  let cargoShipHTML = `<h1 class="title">Cargo Ships</h1><ul>`;
   for (const cargoShip of cargoShips) {
     cargoShipHTML += `<li class="list-item"
                               data-type="cargoShip"
                               data-name=${cargoShip.name}
                               data-id="${cargoShip.id}"
-                              data-haulerId="${cargoShip.haulerId}"
+                              data-hauler-id="${cargoShip.haulerId}"
                               >${cargoShip.name}
                               </li>`;
   }
@@ -26,7 +39,7 @@ document.addEventListener("click", (clickEvent) => {
 
   if (itemClicked.dataset.type === "cargoShip") {
     const cargoShipName = itemClicked.outerText;
-    const cargoShipHaulerId = itemClicked.dataset.haulerid
+    const cargoShipHaulerId = itemClicked.dataset.haulerId
 
     let haulingShip = { name: "Incorrect" }
     for (const hauler of haulers) {
