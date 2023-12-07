@@ -9,7 +9,7 @@ const database = {
         { id: 1, name: "Galactic Giggler", dockId: 3 },
         { id: 2, name: "Quasar Quencher", dockId: 2 },
         { id: 3, name: "Nebula Napper", dockId: 1 },
-        { id: 4, name: "Cosmic Cruncher", dockId: 4 },
+        { id: 4, name: "Cosmic Cruncher", dockId: 1 },
         { id: 5, name: "Stellar Snuggler", dockId: 1 } 
     ],
     cargoShips: [
